@@ -1,4 +1,22 @@
 server:
   port: 8080
 
+logging:
+  level.io.fdlessard.codebites.oauth2.authorization: DEBUG
+  level.root: DEBUG
 
+spring:
+  security:
+#    user:
+#      name: name-db
+#      password: password
+    oauth2:
+      client:
+        client-id: client
+        client-secret: secret
+      scope: read
+      grant-type: client_credentials
+      access-token-uri: http://localhost:8081/oauth/token
+      user-authorization-uri: http://localhost:8081/oauth/authorize
+      resource:
+        token-info-uri: http://localhost:8080
