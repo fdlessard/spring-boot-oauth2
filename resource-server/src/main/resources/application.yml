@@ -5,18 +5,37 @@ logging:
   level.io.fdlessard.codebites.oauth2.authorization: DEBUG
   level.root: DEBUG
 
-spring:
-  security:
+
+#security:
+#  oauth2:
+#    client:
+#      client-id: testClientId
+#      client-secret: testSecret
+#    resource:
+#      token-info-uri: http://localhost:8081/oauth/check_token
+
+
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+    resource:
+      token-info-uri: http://localhost:8081/oauth/check_token
+
+
+#spring:
+#  security:
 #    user:
 #      name: name-db
 #      password: password
-    oauth2:
-      client:
-        client-id: client
-        client-secret: secret
-      scope: read
-      grant-type: client_credentials
-      access-token-uri: http://localhost:8081/oauth/token
-      user-authorization-uri: http://localhost:8081/oauth/authorize
-      resource:
-        token-info-uri: http://localhost:8080
+#    oauth2:
+#      client:
+#        client-id: client
+#        client-secret: secret
+#      scope: read
+#      grant-type: client_credentials
+#      access-token-uri: http://localhost:8081/oauth/token
+#      user-authorization-uri: http://localhost:8081/oauth/authorize
+#      resource:
+#        token-info-uri: http://localhost:8080
