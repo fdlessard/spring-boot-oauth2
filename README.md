@@ -21,3 +21,6 @@ POST http://localhost:8081/oauth/token
 
 
 http://localhost:8081/oauth/check_token?token=b5bad5a8-2df3-441a-8c4f-73ba237a2741
+
+https://projects.spring.io/spring-security-oauth/docs/oauth2.html
+https://projects.spring.io/spring-security-oauth/docs/oauth2.html#resource-server-configuration
