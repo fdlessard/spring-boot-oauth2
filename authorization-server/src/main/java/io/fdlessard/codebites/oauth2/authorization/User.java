@@ -1,24 +1,26 @@
 package io.fdlessard.codebites.oauth2.authorization;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Builder
@@ -29,16 +31,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "user")
 public class User implements UserDetails, Serializable {
 
+  @EqualsAndHashCode.Exclude
   @Id
-  @Column(name = "id")
-  private long id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   @JsonIgnore
   @Version
   @Column(name = "version")
-  private long version;
+  private int version;
 
-  // email
   @NotNull
   @Column(name = "username", unique = true, nullable = false, length = 255)
   private String username;
@@ -58,10 +60,11 @@ public class User implements UserDetails, Serializable {
   @Column(name = "enabled")
   private boolean enabled;
 
-  @Transient
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("User"));
-    return authorities;
-  }
+  @OneToMany(
+      cascade = CascadeType.ALL,
+      orphanRemoval = true,
+      fetch = FetchType.EAGER
+  )
+  @JoinColumn(name = "user_id")
+  private Set<Authority> authorities;
 }
