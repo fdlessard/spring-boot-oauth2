@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
-<<<<<<< HEAD
     @Autowired
     private OAuth2ClientProperties oAuth2ClientProperties;
 
@@ -48,38 +47,5 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .accessTokenValiditySeconds(oAuth2ClientProperties.getAccessTokenValiditySeconds())
                 .refreshTokenValiditySeconds(oAuth2ClientProperties.getAccessTokenValiditySeconds());
     }
-=======
-  @Autowired
-  private OAuth2ClientProperties oAuth2ClientProperties;
 
-  @Autowired
-  private AuthenticationManager authenticationManager;
-
-  @Autowired
-  private UserDetailsService userDetailsService;
-
-
-  @Override
-  public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-    endpoints.authenticationManager(authenticationManager)
-        .userDetailsService(userDetailsService);
-  }
-
- @Override
- public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-   oauthServer.checkTokenAccess("permitAll()");
- }
-
-  @Override
-  public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
-    configurer
-        .inMemory()
-        .withClient(oAuth2ClientProperties.getClientId())
-        .secret(oAuth2ClientProperties.getClientSecret())
-        .authorizedGrantTypes("authorization_code", "refresh_token", "password", "implicit", "client_credentials")
-        .scopes("all")
-        .accessTokenValiditySeconds(oAuth2ClientProperties.getAccessTokenValiditySeconds())
-        .refreshTokenValiditySeconds(oAuth2ClientProperties.getAccessTokenValiditySeconds());
-  }
->>>>>>> 0311251bcef66235737ff0ce758d9febc9a01bf6
 }
