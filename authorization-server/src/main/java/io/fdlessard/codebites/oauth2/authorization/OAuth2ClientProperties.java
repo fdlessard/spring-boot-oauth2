@@ -15,8 +15,8 @@ public class OAuth2ClientProperties {
 
   private String clientId;
   private String clientSecret;
-  private String scopes;
-  private String authorizedGrantTypes;
+  private String[] scopes;
+  private String[] authorizedGrantTypes;
   private int accessTokenValiditySeconds;
   private int refreshTokenValiditySeconds;
 

@@ -10,8 +10,8 @@ security:
     client:
       client-id: client
       client-secret: secret
-#      scope: all
-#      authorized-grant-types: authorization_code,refresh_token,password
+      authorized-grant-types: refresh_token, client_credentials, password, implicit,  authorization_code
+      scopes: all
       access-token-validity-seconds: 3600
       refresh-token-validity-seconds: 3600
     resource:
