@@ -15,6 +15,7 @@ logging:
 #      token-info-uri: http://localhost:8081/oauth/check_token
 
 
+
 security:
   oauth2:
     client:
