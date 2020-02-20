@@ -6,24 +6,27 @@ logging:
   level.root: DEBUG
 
 
-#security:
-#  oauth2:
-#    client:
-#      client-id: testClientId
-#      client-secret: testSecret
-#    resource:
-#      token-info-uri: http://localhost:8081/oauth/check_token
-
-
-
 security:
   oauth2:
     client:
-      client-id: client
-      client-secret: secret
+      client-id: testClientId
+      client-secret: testSecret
     resource:
       token-info-uri: http://localhost:8081/oauth/check_token
 
+
+#  security:
+#   oauth2:
+#    resourceserver:
+#      opaque-token:
+#        introspection-uri: https://idp.example.com/introspect
+#        client-id: client
+#        client-secret: secret
+#    client:
+#      client-id: client
+#      client-secret: secret
+#    resource:
+#      token-info-uri: http://localhost:8081/oauth/check_token
 
 #spring:
 #  security:
@@ -39,4 +42,13 @@ security:
 #      access-token-uri: http://localhost:8081/oauth/token
 #      user-authorization-uri: http://localhost:8081/oauth/authorize
 #      resource:
+
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        opaquetoken:
+#          client-id: client
+#          client-secret: secret
+#          introspection-uri: http://localhost:8081/oauth/check_token
 #        token-info-uri: http://localhost:8080

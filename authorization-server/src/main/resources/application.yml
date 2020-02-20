@@ -14,8 +14,6 @@ security:
       scopes: all
       access-token-validity-seconds: 3600
       refresh-token-validity-seconds: 3600
-    resource:
-      token-info-uri: http://localhost:8081/oauth/check_token
 
 spring:
   h2:

@@ -25,14 +25,12 @@
 
 - https://www.browserling.com/tools/bcrypt
 
-<<<<<<< HEAD
+- http://localhost:8081/oauth/check_token?token=b5bad5a8-2df3-441a-8c4f-73ba237a2741
 
-http://localhost:8081/oauth/check_token?token=b5bad5a8-2df3-441a-8c4f-73ba237a2741
 
-https://projects.spring.io/spring-security-oauth/docs/oauth2.html
-https://projects.spring.io/spring-security-oauth/docs/oauth2.html#resource-server-configuration
-=======
->>>>>>> 0311251bcef66235737ff0ce758d9febc9a01bf6
 ### References
 
 - https://pattern-match.com/blog/2018/10/17/springboot2-with-oauth2-integration/
+
+- https://projects.spring.io/spring-security-oauth/docs/oauth2.html
+- https://projects.spring.io/spring-security-oauth/docs/oauth2.html#resource-server-configuration
